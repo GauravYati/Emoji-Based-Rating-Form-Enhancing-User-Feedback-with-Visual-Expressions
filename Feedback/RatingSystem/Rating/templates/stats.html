@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    {% include "nav2.html" %}
+    <div class="row">
+      <div class="w-50 mx-auto mt-5">
+<canvas id="myChart" style="width:200%;max-width:600px"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: ['Good', 'Average', 'Bad'],
+    datasets: [{
+      backgroundColor: barColors,
+      label: 'Overall Rating',
+      data: [{{good_ratings}}, {{average_ratings}}, {{bad_ratings}}],
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Overall Rating"
+    }
+  }
+});
+</script>
+  </div>
+  </div></div>
+</body>
+</html>

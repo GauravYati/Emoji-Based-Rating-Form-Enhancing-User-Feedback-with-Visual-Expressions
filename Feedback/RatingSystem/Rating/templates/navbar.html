@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .navbar-custom {
+        background-color: #8C7284;
+    }
+      .btn-custom  {
+        display: inline-block;
+        color: #fff;
+        background-color: #1AFFD5;
+        border: none;
+    }
+    .btn-custom :focus {
+      border: none;
+      outline: none;
+    }
+    .btn-custom :hover {background-color: #7D83FF}
+    .btn-custom :active {
+      background-color: #1AFFD5;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item d-flex">
+                <form action='{% url 'loginuser' %}'>
+                  {% csrf_token %}
+                  <button class="btn btn-custom">Login</button>
+              </form>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</body>
+</html>
